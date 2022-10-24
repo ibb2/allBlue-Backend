@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     
     # Third party libraries
     'channels',
+
+    # Apps
+    'rooms',
 ]
 
 MIDDLEWARE = [
