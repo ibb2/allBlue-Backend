@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     # Third party libraries
     'channels',
+    "daphne",
 
     # Apps
     'rooms',
