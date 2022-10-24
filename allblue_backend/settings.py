@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # Apps
     'rooms',
+    'users',
 ]
 
 MIDDLEWARE = [
