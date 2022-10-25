@@ -96,38 +96,6 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
-name = "cachecontrol"
-version = "0.12.11"
-description = "httplib2 caching for requests"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-msgpack = ">=0.5.2"
-requests = "*"
-
-[package.extras]
-filecache = ["lockfile (>=0.9)"]
-redis = ["redis (>=2.10.5)"]
-
-[[package]]
-name = "cachetools"
-version = "5.2.0"
-description = "Extensible memoizing collections and decorators"
-category = "main"
-optional = false
-python-versions = "~=3.7"
-
-[[package]]
-name = "certifi"
-version = "2022.9.24"
-description = "Python package for providing Mozilla's CA Bundle."
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[[package]]
 name = "cffi"
 version = "1.15.1"
 description = "Foreign Function Interface for Python calling C code."
@@ -148,7 +116,6 @@ python-versions = ">=3.7"
 
 [package.dependencies]
 asgiref = ">=3.5.0,<4"
-daphne = {version = ">=4.0.0", optional = true, markers = "extra == \"daphne\""}
 Django = ">=3.2"
 
 [package.extras]
@@ -164,18 +131,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode-backport = ["unicodedata2"]
-
-[[package]]
-name = "charset-normalizer"
-version = "2.1.1"
-description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "main"
-optional = false
-python-versions = ">=3.6.0"
-
-[package.extras]
-unicode-backport = ["unicodedata2"]
+unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "constantly"
@@ -246,7 +202,7 @@ optional = false
 python-versions = ">=3.4,<4"
 
 [package.extras]
-develop = ["coverage[toml] (>=5.0a4)", "furo (>=2021.8.17b43,<2021.9.0)", "pytest (>=4.6.11)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
+develop = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)", "furo (>=2021.8.17b43,<2021.9.0)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
 docs = ["furo (>=2021.8.17b43,<2021.9.0)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
 testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
 
@@ -334,218 +290,8 @@ rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
 six = ">=1.9.0"
 
 [package.extras]
-aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)", "requests (>=2.20.0,<3.0.0dev)"]
-enterprise-cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
-pyopenssl = ["pyopenssl (>=20.0.0)"]
-reauth = ["pyu2f (>=0.1.5)"]
-
-[[package]]
-name = "google-auth-httplib2"
-version = "0.1.0"
-description = "Google Authentication Library: httplib2 transport"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-google-auth = "*"
-httplib2 = ">=0.15.0"
-six = "*"
-
-[[package]]
-name = "google-cloud-core"
-version = "2.3.2"
-description = "Google Cloud API client core library"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-google-api-core = ">=1.31.6,<2.0.0 || >2.3.0,<3.0.0dev"
-google-auth = ">=1.25.0,<3.0dev"
-
-[package.extras]
-grpc = ["grpcio (>=1.38.0,<2.0dev)"]
-
-[[package]]
-name = "google-cloud-firestore"
-version = "2.7.2"
-description = "Google Cloud Firestore API client library"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-google-api-core = {version = ">=1.32.0,<2.0.0 || >=2.8.0,<3.0.0dev", extras = ["grpc"]}
-google-cloud-core = ">=1.4.1,<3.0.0dev"
-proto-plus = ">=1.22.0,<2.0.0dev"
-protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<5.0.0dev"
-
-[[package]]
-name = "google-cloud-storage"
-version = "2.5.0"
-description = "Google Cloud Storage API client library"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-google-api-core = ">=1.31.5,<2.0.0 || >2.3.0,<3.0.0dev"
-google-auth = ">=1.25.0,<3.0dev"
-google-cloud-core = ">=2.3.0,<3.0dev"
-google-resumable-media = ">=2.3.2"
-requests = ">=2.18.0,<3.0.0dev"
-
-[package.extras]
-protobuf = ["protobuf (<5.0.0dev)"]
-
-[[package]]
-name = "google-crc32c"
-version = "1.5.0"
-description = "A python wrapper of the C library 'Google CRC32C'"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.extras]
-testing = ["pytest"]
-
-[[package]]
-name = "google-resumable-media"
-version = "2.4.0"
-description = "Utilities for Google Media Downloads and Resumable Uploads"
-category = "main"
-optional = false
-python-versions = ">= 3.7"
-
-[package.dependencies]
-google-crc32c = ">=1.0,<2.0dev"
-
-[package.extras]
-aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)"]
-requests = ["requests (>=2.18.0,<3.0.0dev)"]
-
-[[package]]
-name = "googleapis-common-protos"
-version = "1.56.4"
-description = "Common protobufs used in Google APIs"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-protobuf = ">=3.15.0,<5.0.0dev"
-
-[package.extras]
-grpc = ["grpcio (>=1.0.0,<2.0.0dev)"]
-
-[[package]]
-name = "grpcio"
-version = "1.50.0"
-description = "HTTP/2-based RPC framework"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-six = ">=1.5.2"
-
-[package.extras]
-protobuf = ["grpcio-tools (>=1.50.0)"]
-
-[[package]]
-name = "grpcio-status"
-version = "1.50.0"
-description = "Status proto mapping for gRPC"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-googleapis-common-protos = ">=1.5.5"
-grpcio = ">=1.50.0"
-protobuf = ">=4.21.6"
-
-[[package]]
-name = "httplib2"
-version = "0.20.4"
-description = "A comprehensive HTTP client library."
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[package.dependencies]
-pyparsing = {version = ">=2.4.2,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.0.2 || >3.0.2,<3.0.3 || >3.0.3,<4", markers = "python_version > \"3.0\""}
-
-[[package]]
-name = "firebase-admin"
-version = "6.0.1"
-description = "Firebase Admin Python SDK"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-cachecontrol = ">=0.12.6"
-google-api-core = {version = ">=1.22.1,<3.0.0dev", extras = ["grpc"], markers = "platform_python_implementation != \"PyPy\""}
-google-api-python-client = ">=1.7.8"
-google-cloud-firestore = {version = ">=2.1.0", markers = "platform_python_implementation != \"PyPy\""}
-google-cloud-storage = ">=1.37.1"
-pyjwt = {version = ">=2.5.0", extras = ["crypto"]}
-
-[[package]]
-name = "google-api-core"
-version = "2.10.2"
-description = "Google API client core library"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-google-auth = ">=1.25.0,<3.0dev"
-googleapis-common-protos = ">=1.56.2,<2.0dev"
-grpcio = {version = ">=1.33.2,<2.0dev", optional = true, markers = "extra == \"grpc\""}
-grpcio-status = {version = ">=1.33.2,<2.0dev", optional = true, markers = "extra == \"grpc\""}
-protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<5.0.0dev"
-requests = ">=2.18.0,<3.0.0dev"
-
-[package.extras]
-grpc = ["grpcio (>=1.33.2,<2.0dev)", "grpcio-status (>=1.33.2,<2.0dev)"]
-grpcgcp = ["grpcio-gcp (>=0.2.2,<1.0dev)"]
-grpcio-gcp = ["grpcio-gcp (>=0.2.2,<1.0dev)"]
-
-[[package]]
-name = "google-api-python-client"
-version = "2.65.0"
-description = "Google API Client Library for Python"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-google-api-core = ">=1.31.5,<2.0.0 || >2.3.0,<3.0.0dev"
-google-auth = ">=1.19.0,<3.0.0dev"
-google-auth-httplib2 = ">=0.1.0"
-httplib2 = ">=0.15.0,<1dev"
-uritemplate = ">=3.0.1,<5"
-
-[[package]]
-name = "google-auth"
-version = "2.13.0"
-description = "Google Authentication Library"
-category = "main"
-optional = false
-python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
-
-[package.dependencies]
-cachetools = ">=2.0.0,<6.0"
-pyasn1-modules = ">=0.2.1"
-rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
-six = ">=1.9.0"
-
-[package.extras]
-aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)", "requests (>=2.20.0,<3.0.0dev)"]
-enterprise-cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
+aiohttp = ["requests (>=2.20.0,<3.0.0dev)", "aiohttp (>=3.6.2,<4.0.0dev)"]
+enterprise_cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
 pyopenssl = ["pyopenssl (>=20.0.0)"]
 reauth = ["pyu2f (>=0.1.5)"]
 
@@ -803,9 +549,9 @@ cryptography = {version = ">=3.4.0", optional = true, markers = "extra == \"cryp
 
 [package.extras]
 crypto = ["cryptography (>=3.4.0)"]
-dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
 docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
-tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
 
 [[package]]
 name = "pyopenssl"
@@ -831,7 +577,7 @@ optional = false
 python-versions = ">=3.6.8"
 
 [package.extras]
-diagrams = ["jinja2", "railroad-diagrams"]
+diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
 name = "requests"
@@ -849,7 +595,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
+use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "rsa"
@@ -991,12 +737,12 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
 [package.extras]
-brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
-secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
+brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
-name = "zope-interface"
+name = "zope.interface"
 version = "5.5.0"
 description = "Interfaces for Python"
 category = "main"
@@ -1556,7 +1302,7 @@ urllib3 = [
     {file = "urllib3-1.26.12-py2.py3-none-any.whl", hash = "sha256:b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"},
     {file = "urllib3-1.26.12.tar.gz", hash = "sha256:3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"},
 ]
-zope-interface = [
+"zope.interface" = [
     {file = "zope.interface-5.5.0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:2cb3003941f5f4fa577479ac6d5db2b940acb600096dd9ea9bf07007f5cab46f"},
     {file = "zope.interface-5.5.0-cp27-cp27m-win32.whl", hash = "sha256:8c791f4c203ccdbcda588ea4c8a6e4353e10435ea48ddd3d8734a26fe9714cba"},
     {file = "zope.interface-5.5.0-cp27-cp27m-win_amd64.whl", hash = "sha256:3eedf3d04179774d750e8bb4463e6da350956a50ed44d7b86098e452d7ec385e"},
