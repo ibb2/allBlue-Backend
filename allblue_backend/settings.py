@@ -23,8 +23,7 @@ env = environ.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # reading .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -73,9 +72,7 @@ ROOT_URLCONF = "allblue_backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [ 
-            BASE_DIR.joinpath("Templates")
-        ],
+        "DIRS": [BASE_DIR.joinpath("Templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
