@@ -15,14 +15,15 @@ from channels.security.websocket import AllowedHostsOriginValidator
 from django.core.asgi import get_asgi_application
 
 from rooms.routings import websocket_urlpatterns
+from users.firebasemiddleware import FirebaseAuthMiddlewareStack
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'allblue_backend.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "allblue_backend.settings")
 
-application = ProtocolTypeRouter({
-    'http': get_asgi_application(),
-    "websocket": AllowedHostsOriginValidator(
-        AuthMiddlewareStack(
-            URLRouter(websocket_urlpatterns)
+application = ProtocolTypeRouter(
+    {
+        "http": get_asgi_application(),
+        "websocket": AllowedHostsOriginValidator(
+            FirebaseAuthMiddlewareStack(URLRouter(websocket_urlpatterns)),
         ),
-    ),
-}) 
+    }
+)

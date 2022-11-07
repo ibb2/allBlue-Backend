@@ -8,5 +8,6 @@ from .managers import CustomUserManager
 
 # Create your models here.
 class User(AbstractUser):
-
+    email = models.EmailField(unique=True)
+    
     manager = CustomUserManager()
