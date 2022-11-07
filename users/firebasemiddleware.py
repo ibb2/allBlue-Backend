@@ -54,25 +54,13 @@ class FirebaseAuthMiddleware(BaseMiddleware):
         print(id_token)
 
         # Try to authenticate the user
-        try:
-            pathToCredentials = "{}".format(
-                os.path.join(BASE_DIR, env("FIREBASE_ADMIN_SDK_CREDENTIALS"))
-            )
 
-            cred = credentials.Certificate(pathToCredentials)
-            firebase_admin.initialize_app(cred)
+        #  Then token is valid, decode it
+        decoded_data = auth.verify_id_token(id_token)
+        uid = decoded_data["uid"]
 
-        except Exception as e:
-            # Token is invalid
-            print(e)
-            return None
-        else:
-            #  Then token is valid, decode it
-            decoded_data = auth.verify_id_token(id_token)
-            uid = decoded_data["uid"]
-
-            # Get/Create the user using ID
-            scope["user"] = await get_user(decoded_data)
+        # Get/Create the user using ID
+        scope["user"] = await get_user(decoded_data)
         return await super().__call__(scope, receive, send)
 
 

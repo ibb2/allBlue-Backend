@@ -57,6 +57,7 @@ class RoomConsumer(WebsocketConsumer):
         """
 
         data = json.dumps({type: "playing.request", "request": event["request"]})
+        print(data)
 
         self.send(
             text_data=data,

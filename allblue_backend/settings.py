@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import environ, os
+import environ, firebase_admin, os
 
+from firebase_admin import auth, credentials
 from pathlib import Path
 
 env = environ.Env(
@@ -144,3 +145,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
+
+# Setup firebase admin
+pathToCredentials = "{}".format(
+    os.path.join(BASE_DIR, env("FIREBASE_ADMIN_SDK_CREDENTIALS"))
+)
+
+cred = credentials.Certificate(pathToCredentials)
+firebase_admin.initialize_app(cred)
