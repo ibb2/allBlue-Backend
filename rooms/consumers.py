@@ -3,11 +3,9 @@ from urllib import request
 import environ
 import json, os
 
-import firebase_admin
-from firebase_admin import auth, credentials
 
 from asgiref.sync import async_to_sync
-from channels.auth import AuthMiddlewareStack
+from channels.auth import AuthMiddlewareStack, login
 from channels.generic.websocket import WebsocketConsumer
 from pydantic import Json
 
@@ -22,9 +20,14 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 class RoomConsumer(WebsocketConsumer):
     def connect(self):
-        try:
+
+        self.user = self.scope["user"]
+
+        if self.user.is_authenticated:
+            self.room_group_name = f"{self.user.username}_Music_Room"
             self.accept()
-        except:
+
+        else:
             self.close()
 
     def disconnect(self, close_code):
@@ -41,33 +44,8 @@ class RoomConsumer(WebsocketConsumer):
         Else connection will be established.
         """
 
-        try:
-
-            pathToCredentials = "{}".format(
-                os.path.join(BASE_DIR, env("GOOGLE_APPLICATION_CREDENTIALS"))
-            )
-
-            cred = credentials.Certificate(pathToCredentials)
-            firebase_admin.initialize_app(cred)
-
-            id_token = json.loads(text_data)["id"]
-            decoded_token = auth.verify_id_token(id_token)
-
-            uid = decoded_token["uid"]
-
-            if uid != None:
-
-                self.room_name = uid
-                self.room_group_name = f"Music_Room_{uid}"
-
-        except Exception:
-            pass
-
         async_to_sync(self.channel_layer.group_send)(
-            self.room_group_name, {
-                "type": "playing_request",
-                "request": text_data
-            }
+            self.room_group_name, {"type": "playing_request", "request": text_data}
         )
 
     def playing_request(self, event):
@@ -81,6 +59,5 @@ class RoomConsumer(WebsocketConsumer):
         data = json.dumps({type: "playing.request", "request": event["request"]})
 
         self.send(
-            text_data = data,
+            text_data=data,
         )
-
