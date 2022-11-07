@@ -7,7 +7,7 @@ optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
+tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "attrs"
@@ -18,10 +18,10 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
-docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "cloudpickle"]
+dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
+docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
+tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
+tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "autobahn"
@@ -34,23 +34,24 @@ python-versions = ">=3.7"
 [package.dependencies]
 cryptography = ">=3.4.6"
 hyperlink = ">=21.0.0"
+setuptools = "*"
 txaio = ">=21.2.1"
 
 [package.extras]
-all = ["zope.interface (>=5.2.0)", "twisted (>=20.3.0)", "attrs (>=20.3.0)", "python-snappy (>=0.6.0)", "msgpack (>=1.0.2)", "ujson (>=4.0.2)", "cbor2 (>=5.2.0)", "py-ubjson (>=0.16.1)", "flatbuffers (>=1.12)", "pyopenssl (>=20.0.1)", "service_identity (>=18.1.0)", "pynacl (>=1.4.0)", "pytrie (>=0.4.0)", "qrcode (>=7.3.1)", "cffi (>=1.14.5)", "argon2_cffi (>=20.1.0)", "passlib (>=1.7.4)", "xbr (>=21.2.1)", "click (>=8.1.2)", "zlmdb (>=21.2.1)", "web3 (>=5.29.0)", "rlp (>=2.0.1)", "py-eth-sig-utils (>=0.4.0)", "py-ecc (>=5.1.0)", "eth-abi (>=2.1.1)", "mnemonic (>=0.19)", "base58 (>=2.1.0)", "ecdsa (>=0.16.1)", "py-multihash (>=2.0.1)", "jinja2 (>=2.11.3)", "yapf (==0.29.0)", "spake2 (>=0.8)", "hkdf (>=0.0.3)", "PyGObject (>=3.40.0)"]
+all = ["PyGObject (>=3.40.0)", "argon2_cffi (>=20.1.0)", "attrs (>=20.3.0)", "base58 (>=2.1.0)", "cbor2 (>=5.2.0)", "cffi (>=1.14.5)", "click (>=8.1.2)", "ecdsa (>=0.16.1)", "eth-abi (>=2.1.1)", "flatbuffers (>=1.12)", "hkdf (>=0.0.3)", "jinja2 (>=2.11.3)", "mnemonic (>=0.19)", "msgpack (>=1.0.2)", "passlib (>=1.7.4)", "py-ecc (>=5.1.0)", "py-eth-sig-utils (>=0.4.0)", "py-multihash (>=2.0.1)", "py-ubjson (>=0.16.1)", "pynacl (>=1.4.0)", "pyopenssl (>=20.0.1)", "python-snappy (>=0.6.0)", "pytrie (>=0.4.0)", "qrcode (>=7.3.1)", "rlp (>=2.0.1)", "service_identity (>=18.1.0)", "spake2 (>=0.8)", "twisted (>=20.3.0)", "ujson (>=4.0.2)", "web3 (>=5.29.0)", "xbr (>=21.2.1)", "yapf (==0.29.0)", "zlmdb (>=21.2.1)", "zope.interface (>=5.2.0)"]
 compress = ["python-snappy (>=0.6.0)"]
-dev = ["awscli", "backports.tempfile (>=1.0)", "bumpversion (>=0.5.3)", "codecov (>=2.0.15)", "flake8 (<5)", "humanize (>=0.5.1)", "passlib", "pep8-naming (>=0.3.3)", "pip (>=9.0.1)", "pyenchant (>=1.6.6)", "pyflakes (>=1.0.0)", "pyinstaller (>=4.2)", "pylint (>=1.9.2)", "pytest-aiohttp", "pytest-asyncio (>=0.14.0)", "pytest-runner (>=2.11.1)", "pytest (>=3.4.2)", "pyyaml (>=4.2b4)", "qualname", "sphinx-autoapi (>=1.7.0)", "sphinx (>=1.7.1)", "sphinx_rtd_theme (>=0.1.9)", "sphinxcontrib-images (>=0.9.1)", "tox-gh-actions (>=2.2.0)", "tox (>=2.9.1)", "twine (>=3.3.0)", "twisted (>=18.7.0)", "txaio (>=20.4.1)", "watchdog (>=0.8.3)", "wheel (>=0.36.2)", "yapf (==0.29.0)", "mypy (>=0.610)"]
-encryption = ["pyopenssl (>=20.0.1)", "service_identity (>=18.1.0)", "pynacl (>=1.4.0)", "pytrie (>=0.4.0)", "qrcode (>=7.3.1)"]
+dev = ["awscli", "backports.tempfile (>=1.0)", "bumpversion (>=0.5.3)", "codecov (>=2.0.15)", "flake8 (<5)", "humanize (>=0.5.1)", "mypy (>=0.610)", "passlib", "pep8-naming (>=0.3.3)", "pip (>=9.0.1)", "pyenchant (>=1.6.6)", "pyflakes (>=1.0.0)", "pyinstaller (>=4.2)", "pylint (>=1.9.2)", "pytest (>=3.4.2)", "pytest-aiohttp", "pytest-asyncio (>=0.14.0)", "pytest-runner (>=2.11.1)", "pyyaml (>=4.2b4)", "qualname", "sphinx (>=1.7.1)", "sphinx-autoapi (>=1.7.0)", "sphinx_rtd_theme (>=0.1.9)", "sphinxcontrib-images (>=0.9.1)", "tox (>=2.9.1)", "tox-gh-actions (>=2.2.0)", "twine (>=3.3.0)", "twisted (>=18.7.0)", "txaio (>=20.4.1)", "watchdog (>=0.8.3)", "wheel (>=0.36.2)", "yapf (==0.29.0)"]
+encryption = ["pynacl (>=1.4.0)", "pyopenssl (>=20.0.1)", "pytrie (>=0.4.0)", "qrcode (>=7.3.1)", "service_identity (>=18.1.0)"]
 nvx = ["cffi (>=1.14.5)"]
-scram = ["cffi (>=1.14.5)", "argon2_cffi (>=20.1.0)", "passlib (>=1.7.4)"]
-serialization = ["msgpack (>=1.0.2)", "ujson (>=4.0.2)", "cbor2 (>=5.2.0)", "py-ubjson (>=0.16.1)", "flatbuffers (>=1.12)"]
-twisted = ["zope.interface (>=5.2.0)", "twisted (>=20.3.0)", "attrs (>=20.3.0)"]
+scram = ["argon2_cffi (>=20.1.0)", "cffi (>=1.14.5)", "passlib (>=1.7.4)"]
+serialization = ["cbor2 (>=5.2.0)", "flatbuffers (>=1.12)", "msgpack (>=1.0.2)", "py-ubjson (>=0.16.1)", "ujson (>=4.0.2)"]
+twisted = ["attrs (>=20.3.0)", "twisted (>=20.3.0)", "zope.interface (>=5.2.0)"]
 ui = ["PyGObject (>=3.40.0)"]
-xbr = ["xbr (>=21.2.1)", "click (>=8.1.2)", "cbor2 (>=5.2.0)", "zlmdb (>=21.2.1)", "twisted (>=20.3.0)", "web3 (>=5.29.0)", "rlp (>=2.0.1)", "py-eth-sig-utils (>=0.4.0)", "py-ecc (>=5.1.0)", "eth-abi (>=2.1.1)", "mnemonic (>=0.19)", "base58 (>=2.1.0)", "ecdsa (>=0.16.1)", "py-multihash (>=2.0.1)", "jinja2 (>=2.11.3)", "yapf (==0.29.0)", "spake2 (>=0.8)", "hkdf (>=0.0.3)"]
+xbr = ["base58 (>=2.1.0)", "cbor2 (>=5.2.0)", "click (>=8.1.2)", "ecdsa (>=0.16.1)", "eth-abi (>=2.1.1)", "hkdf (>=0.0.3)", "jinja2 (>=2.11.3)", "mnemonic (>=0.19)", "py-ecc (>=5.1.0)", "py-eth-sig-utils (>=0.4.0)", "py-multihash (>=2.0.1)", "rlp (>=2.0.1)", "spake2 (>=0.8)", "twisted (>=20.3.0)", "web3 (>=5.29.0)", "xbr (>=21.2.1)", "yapf (==0.29.0)", "zlmdb (>=21.2.1)"]
 
 [[package]]
 name = "automat"
-version = "20.2.0"
+version = "22.10.0"
 description = "Self-service finite-state machines for the programmer on the go."
 category = "main"
 optional = false
@@ -61,7 +62,7 @@ attrs = ">=19.2.0"
 six = "*"
 
 [package.extras]
-visualize = ["graphviz (>0.5.1)", "Twisted (>=16.1.1)"]
+visualize = ["Twisted (>=16.1.1)", "graphviz (>0.5.1)"]
 
 [[package]]
 name = "cachecontrol"
@@ -120,7 +121,7 @@ Django = ">=3.2"
 
 [package.extras]
 daphne = ["daphne (>=4.0.0)"]
-tests = ["pytest", "pytest-django", "pytest-asyncio", "async-timeout", "coverage (>=4.5,<5.0)"]
+tests = ["async-timeout", "coverage (>=4.5,<5.0)", "pytest", "pytest-asyncio", "pytest-django"]
 
 [[package]]
 name = "charset-normalizer"
@@ -131,7 +132,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "constantly"
@@ -154,11 +155,11 @@ cffi = ">=1.12"
 
 [package.extras]
 docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx-rtd-theme"]
-docstest = ["pyenchant (>=1.6.11)", "twine (>=1.12.0)", "sphinxcontrib-spelling (>=4.0.1)"]
+docstest = ["pyenchant (>=1.6.11)", "sphinxcontrib-spelling (>=4.0.1)", "twine (>=1.12.0)"]
 pep8test = ["black", "flake8", "flake8-import-order", "pep8-naming"]
 sdist = ["setuptools-rust (>=0.11.4)"]
 ssh = ["bcrypt (>=3.1.5)"]
-test = ["pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest-subtests", "pytest-xdist", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
+test = ["hypothesis (>=1.11.4,!=3.79.2)", "iso8601", "pretend", "pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest-subtests", "pytest-xdist", "pytz"]
 
 [[package]]
 name = "daphne"
@@ -174,7 +175,7 @@ autobahn = ">=22.4.2"
 twisted = {version = ">=22.4", extras = ["tls"]}
 
 [package.extras]
-tests = ["hypothesis", "pytest", "pytest-asyncio", "django"]
+tests = ["django", "hypothesis", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "django"
@@ -202,7 +203,7 @@ optional = false
 python-versions = ">=3.4,<4"
 
 [package.extras]
-develop = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)", "furo (>=2021.8.17b43,<2021.9.0)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
+develop = ["coverage[toml] (>=5.0a4)", "furo (>=2021.8.17b43,<2021.9.0)", "pytest (>=4.6.11)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
 docs = ["furo (>=2021.8.17b43,<2021.9.0)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
 testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
 
@@ -231,8 +232,8 @@ pydantic = ">=1.6,<2.0.0"
 
 [package.extras]
 dev = ["pre-commit"]
-doc = ["mkdocs", "mkdocs-material", "markdown-include", "mkdocstrings"]
-test = ["pytest", "pytest-cov", "pytest-django", "pytest-asyncio", "psycopg2-binary", "black", "isort", "flake8", "mypy (==0.931)", "django-stubs"]
+doc = ["markdown-include", "mkdocs", "mkdocs-material", "mkdocstrings"]
+test = ["black", "django-stubs", "flake8", "isort", "mypy (==0.931)", "psycopg2-binary", "pytest", "pytest-asyncio", "pytest-cov", "pytest-django"]
 
 [[package]]
 name = "djangorestframework"
@@ -313,8 +314,8 @@ rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
 six = ">=1.9.0"
 
 [package.extras]
-aiohttp = ["requests (>=2.20.0,<3.0.0dev)", "aiohttp (>=3.6.2,<4.0.0dev)"]
-enterprise_cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
+aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)", "requests (>=2.20.0,<3.0.0dev)"]
+enterprise-cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
 pyopenssl = ["pyopenssl (>=20.0.0)"]
 reauth = ["pyu2f (>=0.1.5)"]
 
@@ -484,7 +485,7 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-mypy = ["click (>=6.0)", "twisted (>=16.4.0)", "mypy (==0.812)"]
+mypy = ["click (>=6.0)", "mypy (==0.812)", "twisted (>=16.4.0)"]
 scripts = ["click (>=6.0)", "twisted (>=16.4.0)"]
 
 [[package]]
@@ -583,9 +584,9 @@ cryptography = {version = ">=3.4.0", optional = true, markers = "extra == \"cryp
 
 [package.extras]
 crypto = ["cryptography (>=3.4.0)"]
-dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
+dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
 docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
-tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
 
 [[package]]
 name = "pyopenssl"
@@ -611,7 +612,7 @@ optional = false
 python-versions = ">=3.6.8"
 
 [package.extras]
-diagrams = ["railroad-diagrams", "jinja2"]
+diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytz"
@@ -637,7 +638,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "rsa"
@@ -666,10 +667,23 @@ pyasn1-modules = "*"
 six = "*"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "pytest", "sphinx", "furo", "idna", "pyopenssl"]
-docs = ["sphinx", "furo"]
+dev = ["coverage[toml] (>=5.0.2)", "furo", "idna", "pyOpenSSL", "pytest", "sphinx"]
+docs = ["furo", "sphinx"]
 idna = ["idna"]
 tests = ["coverage[toml] (>=5.0.2)", "pytest"]
+
+[[package]]
+name = "setuptools"
+version = "65.5.1"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
 name = "six"
@@ -678,21 +692,6 @@ description = "Python 2 and 3 compatibility utilities"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
-
-[[package]]
-name = "snapshots"
-version = "0.0.0"
-description = ""
-category = "main"
-optional = false
-python-versions = "*"
-develop = false
-
-[package.source]
-type = "git"
-url = "https://github.com/wh0th3h3llam1/drf-firebase-auth.git"
-reference = "master"
-resolved_reference = "b53067c91d1ba8767887ad1fa6cf020cdc0f0aaf"
 
 [[package]]
 name = "sqlparse"
@@ -704,7 +703,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "twisted"
-version = "22.8.0"
+version = "22.10.0"
 description = "An asynchronous networking framework written in Python"
 category = "main"
 optional = false
@@ -724,21 +723,21 @@ typing-extensions = ">=3.6.5"
 "zope.interface" = ">=4.4.2"
 
 [package.extras]
-all_non_platform = ["cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
-conch = ["pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)"]
-conch_nacl = ["pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pynacl"]
+all-non-platform = ["PyHamcrest (>=1.9.0)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "contextvars (>=2.4,<3)", "cryptography (>=2.6)", "cython-test-exception-raiser (>=1.0.2,<2)", "h2 (>=3.0,<5.0)", "hypothesis (>=6.0,<7.0)", "idna (>=2.4)", "priority (>=1.1.0,<2.0)", "pyasn1", "pyopenssl (>=21.0.0)", "pyserial (>=3.0)", "pywin32 (!=226)", "service-identity (>=18.1.0)"]
+conch = ["appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "cryptography (>=2.6)", "pyasn1"]
+conch-nacl = ["PyNaCl", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "cryptography (>=2.6)", "pyasn1"]
 contextvars = ["contextvars (>=2.4,<3)"]
-dev = ["towncrier (>=19.2,<20.0)", "pydoctor (>=22.7.0,<22.8.0)", "sphinx-rtd-theme (>=0.5,<1.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=4.1.2,<6)", "pyflakes (>=2.2,<3.0)", "twistedchecker (>=0.7,<1.0)", "coverage (>=6b1,<7)", "python-subunit (>=1.4,<2.0)"]
-dev_release = ["towncrier (>=19.2,<20.0)", "pydoctor (>=22.7.0,<22.8.0)", "sphinx-rtd-theme (>=0.5,<1.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=4.1.2,<6)"]
-gtk_platform = ["pygobject", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+dev = ["coverage (>=6b1,<7)", "pydoctor (>=22.9.0,<22.10.0)", "pyflakes (>=2.2,<3.0)", "python-subunit (>=1.4,<2.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=5.0,<6)", "sphinx-rtd-theme (>=1.0,<2.0)", "towncrier (>=22.8,<23.0)", "twistedchecker (>=0.7,<1.0)"]
+dev-release = ["pydoctor (>=22.9.0,<22.10.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=5.0,<6)", "sphinx-rtd-theme (>=1.0,<2.0)", "towncrier (>=22.8,<23.0)"]
+gtk-platform = ["PyHamcrest (>=1.9.0)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "contextvars (>=2.4,<3)", "cryptography (>=2.6)", "cython-test-exception-raiser (>=1.0.2,<2)", "h2 (>=3.0,<5.0)", "hypothesis (>=6.0,<7.0)", "idna (>=2.4)", "priority (>=1.1.0,<2.0)", "pyasn1", "pygobject", "pyopenssl (>=21.0.0)", "pyserial (>=3.0)", "pywin32 (!=226)", "service-identity (>=18.1.0)"]
 http2 = ["h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)"]
-macos_platform = ["pyobjc-core", "pyobjc-framework-cfnetwork", "pyobjc-framework-cocoa", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
-mypy = ["mypy (==0.930)", "mypy-zope (==0.3.4)", "types-setuptools", "types-pyopenssl", "towncrier (>=19.2,<20.0)", "pydoctor (>=22.7.0,<22.8.0)", "sphinx-rtd-theme (>=0.5,<1.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=4.1.2,<6)", "pyflakes (>=2.2,<3.0)", "twistedchecker (>=0.7,<1.0)", "coverage (>=6b1,<7)", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pynacl", "pywin32 (!=226)", "python-subunit (>=1.4,<2.0)", "contextvars (>=2.4,<3)"]
-osx_platform = ["pyobjc-core", "pyobjc-framework-cfnetwork", "pyobjc-framework-cocoa", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+macos-platform = ["PyHamcrest (>=1.9.0)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "contextvars (>=2.4,<3)", "cryptography (>=2.6)", "cython-test-exception-raiser (>=1.0.2,<2)", "h2 (>=3.0,<5.0)", "hypothesis (>=6.0,<7.0)", "idna (>=2.4)", "priority (>=1.1.0,<2.0)", "pyasn1", "pyobjc-core", "pyobjc-framework-CFNetwork", "pyobjc-framework-Cocoa", "pyopenssl (>=21.0.0)", "pyserial (>=3.0)", "pywin32 (!=226)", "service-identity (>=18.1.0)"]
+mypy = ["PyHamcrest (>=1.9.0)", "PyNaCl", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "contextvars (>=2.4,<3)", "coverage (>=6b1,<7)", "cryptography (>=2.6)", "cython-test-exception-raiser (>=1.0.2,<2)", "h2 (>=3.0,<5.0)", "hypothesis (>=6.0,<7.0)", "idna (>=2.4)", "mypy (==0.930)", "mypy-zope (==0.3.4)", "priority (>=1.1.0,<2.0)", "pyasn1", "pydoctor (>=22.9.0,<22.10.0)", "pyflakes (>=2.2,<3.0)", "pyopenssl (>=21.0.0)", "pyserial (>=3.0)", "python-subunit (>=1.4,<2.0)", "pywin32 (!=226)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "service-identity (>=18.1.0)", "sphinx (>=5.0,<6)", "sphinx-rtd-theme (>=1.0,<2.0)", "towncrier (>=22.8,<23.0)", "twistedchecker (>=0.7,<1.0)", "types-pyOpenSSL", "types-setuptools"]
+osx-platform = ["PyHamcrest (>=1.9.0)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "contextvars (>=2.4,<3)", "cryptography (>=2.6)", "cython-test-exception-raiser (>=1.0.2,<2)", "h2 (>=3.0,<5.0)", "hypothesis (>=6.0,<7.0)", "idna (>=2.4)", "priority (>=1.1.0,<2.0)", "pyasn1", "pyobjc-core", "pyobjc-framework-CFNetwork", "pyobjc-framework-Cocoa", "pyopenssl (>=21.0.0)", "pyserial (>=3.0)", "pywin32 (!=226)", "service-identity (>=18.1.0)"]
 serial = ["pyserial (>=3.0)", "pywin32 (!=226)"]
-test = ["cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)"]
-tls = ["pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)"]
-windows_platform = ["pywin32 (!=226)", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+test = ["PyHamcrest (>=1.9.0)", "cython-test-exception-raiser (>=1.0.2,<2)", "hypothesis (>=6.0,<7.0)"]
+tls = ["idna (>=2.4)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)"]
+windows-platform = ["PyHamcrest (>=1.9.0)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "contextvars (>=2.4,<3)", "cryptography (>=2.6)", "cython-test-exception-raiser (>=1.0.2,<2)", "h2 (>=3.0,<5.0)", "hypothesis (>=6.0,<7.0)", "idna (>=2.4)", "priority (>=1.1.0,<2.0)", "pyasn1", "pyopenssl (>=21.0.0)", "pyserial (>=3.0)", "pywin32 (!=226)", "pywin32 (!=226)", "service-identity (>=18.1.0)"]
 
 [[package]]
 name = "twisted-iocpsupport"
@@ -757,9 +756,9 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-all = ["zope.interface (>=5.2.0)", "twisted (>=20.3.0)"]
-dev = ["wheel", "pytest (>=2.6.4)", "pytest-cov (>=1.8.1)", "pep8 (>=1.6.2)", "sphinx (>=1.2.3)", "pyenchant (>=1.6.6)", "sphinxcontrib-spelling (>=2.1.2)", "sphinx-rtd-theme (>=0.1.9)", "tox (>=2.1.1)", "twine (>=1.6.5)", "tox-gh-actions (>=2.2.0)"]
-twisted = ["zope.interface (>=5.2.0)", "twisted (>=20.3.0)"]
+all = ["twisted (>=20.3.0)", "zope.interface (>=5.2.0)"]
+dev = ["pep8 (>=1.6.2)", "pyenchant (>=1.6.6)", "pytest (>=2.6.4)", "pytest-cov (>=1.8.1)", "sphinx (>=1.2.3)", "sphinx-rtd-theme (>=0.1.9)", "sphinxcontrib-spelling (>=2.1.2)", "tox (>=2.1.1)", "tox-gh-actions (>=2.2.0)", "twine (>=1.6.5)", "wheel"]
+twisted = ["twisted (>=20.3.0)", "zope.interface (>=5.2.0)"]
 
 [[package]]
 name = "typing-extensions"
@@ -794,27 +793,30 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
 [package.extras]
-brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
-secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
+brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
-name = "zope.interface"
-version = "5.5.0"
+name = "zope-interface"
+version = "5.5.1"
 description = "Interfaces for Python"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
+[package.dependencies]
+setuptools = "*"
+
 [package.extras]
-docs = ["sphinx", "repoze.sphinx.autointerface"]
+docs = ["Sphinx", "repoze.sphinx.autointerface"]
 test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "64eb5fbba9c4ee09cbbd6441c9bde9c320ea91672060a95eb87229b0e92b9eb6"
+content-hash = "eea8b9f725cd3bbe559eb0e34d07154650467a2310cb58e7735616abf7f9be0a"
 
 [metadata.files]
 asgiref = [
@@ -829,8 +831,8 @@ autobahn = [
     {file = "autobahn-22.7.1.tar.gz", hash = "sha256:8b462ea2e6aad6b4dc0ed45fb800b6cbfeb0325e7fe6983907f122f2be4a1fe9"},
 ]
 automat = [
-    {file = "Automat-20.2.0-py2.py3-none-any.whl", hash = "sha256:b6feb6455337df834f6c9962d6ccf771515b7d939bca142b29c20c2376bc6111"},
-    {file = "Automat-20.2.0.tar.gz", hash = "sha256:7979803c74610e11ef0c0d68a2942b152df52da55336e0c9d58daf1831cbdf33"},
+    {file = "Automat-22.10.0-py2.py3-none-any.whl", hash = "sha256:c3164f8742b9dc440f3682482d32aaff7bb53f71740dd018533f9de286b64180"},
+    {file = "Automat-22.10.0.tar.gz", hash = "sha256:e56beb84edad19dcc11d30e8d9b895f75deeb5ef5e96b84a467066b3b84bb04e"},
 ]
 cachecontrol = [
     {file = "CacheControl-0.12.12-py2.py3-none-any.whl", hash = "sha256:5986a16897cd296bdb7b86b42e0403c4ca30b9875f0e0c7c8e509b50cff115b7"},
@@ -1230,34 +1232,12 @@ protobuf = [
     {file = "protobuf-4.21.8.tar.gz", hash = "sha256:427426593b55ff106c84e4a88cac855175330cb6eb7e889e85aaa7b5652b686d"},
 ]
 pyasn1 = [
-    {file = "pyasn1-0.4.8-py2.4.egg", hash = "sha256:fec3e9d8e36808a28efb59b489e4528c10ad0f480e57dcc32b4de5c9d8c9fdf3"},
-    {file = "pyasn1-0.4.8-py2.5.egg", hash = "sha256:0458773cfe65b153891ac249bcf1b5f8f320b7c2ce462151f8fa74de8934becf"},
-    {file = "pyasn1-0.4.8-py2.6.egg", hash = "sha256:5c9414dcfede6e441f7e8f81b43b34e834731003427e5b09e4e00e3172a10f00"},
-    {file = "pyasn1-0.4.8-py2.7.egg", hash = "sha256:6e7545f1a61025a4e58bb336952c5061697da694db1cae97b116e9c46abcf7c8"},
     {file = "pyasn1-0.4.8-py2.py3-none-any.whl", hash = "sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d"},
-    {file = "pyasn1-0.4.8-py3.1.egg", hash = "sha256:78fa6da68ed2727915c4767bb386ab32cdba863caa7dbe473eaae45f9959da86"},
-    {file = "pyasn1-0.4.8-py3.2.egg", hash = "sha256:08c3c53b75eaa48d71cf8c710312316392ed40899cb34710d092e96745a358b7"},
-    {file = "pyasn1-0.4.8-py3.3.egg", hash = "sha256:03840c999ba71680a131cfaee6fab142e1ed9bbd9c693e285cc6aca0d555e576"},
-    {file = "pyasn1-0.4.8-py3.4.egg", hash = "sha256:7ab8a544af125fb704feadb008c99a88805126fb525280b2270bb25cc1d78a12"},
-    {file = "pyasn1-0.4.8-py3.5.egg", hash = "sha256:e89bf84b5437b532b0803ba5c9a5e054d21fec423a89952a74f87fa2c9b7bce2"},
-    {file = "pyasn1-0.4.8-py3.6.egg", hash = "sha256:014c0e9976956a08139dc0712ae195324a75e142284d5f87f1a87ee1b068a359"},
-    {file = "pyasn1-0.4.8-py3.7.egg", hash = "sha256:99fcc3c8d804d1bc6d9a099921e39d827026409a58f2a720dcdb89374ea0c776"},
     {file = "pyasn1-0.4.8.tar.gz", hash = "sha256:aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba"},
 ]
 pyasn1-modules = [
     {file = "pyasn1-modules-0.2.8.tar.gz", hash = "sha256:905f84c712230b2c592c19470d3ca8d552de726050d1d1716282a1f6146be65e"},
-    {file = "pyasn1_modules-0.2.8-py2.4.egg", hash = "sha256:0fe1b68d1e486a1ed5473f1302bd991c1611d319bba158e98b106ff86e1d7199"},
-    {file = "pyasn1_modules-0.2.8-py2.5.egg", hash = "sha256:fe0644d9ab041506b62782e92b06b8c68cca799e1a9636ec398675459e031405"},
-    {file = "pyasn1_modules-0.2.8-py2.6.egg", hash = "sha256:a99324196732f53093a84c4369c996713eb8c89d360a496b599fb1a9c47fc3eb"},
-    {file = "pyasn1_modules-0.2.8-py2.7.egg", hash = "sha256:0845a5582f6a02bb3e1bde9ecfc4bfcae6ec3210dd270522fee602365430c3f8"},
     {file = "pyasn1_modules-0.2.8-py2.py3-none-any.whl", hash = "sha256:a50b808ffeb97cb3601dd25981f6b016cbb3d31fbf57a8b8a87428e6158d0c74"},
-    {file = "pyasn1_modules-0.2.8-py3.1.egg", hash = "sha256:f39edd8c4ecaa4556e989147ebf219227e2cd2e8a43c7e7fcb1f1c18c5fd6a3d"},
-    {file = "pyasn1_modules-0.2.8-py3.2.egg", hash = "sha256:b80486a6c77252ea3a3e9b1e360bc9cf28eaac41263d173c032581ad2f20fe45"},
-    {file = "pyasn1_modules-0.2.8-py3.3.egg", hash = "sha256:65cebbaffc913f4fe9e4808735c95ea22d7a7775646ab690518c056784bc21b4"},
-    {file = "pyasn1_modules-0.2.8-py3.4.egg", hash = "sha256:15b7c67fabc7fc240d87fb9aabf999cf82311a6d6fb2c70d00d3d0604878c811"},
-    {file = "pyasn1_modules-0.2.8-py3.5.egg", hash = "sha256:426edb7a5e8879f1ec54a1864f16b882c2837bfd06eee62f2c982315ee2473ed"},
-    {file = "pyasn1_modules-0.2.8-py3.6.egg", hash = "sha256:cbac4bc38d117f2a49aeedec4407d23e8866ea4ac27ff2cf7fb3e5b570df19e0"},
-    {file = "pyasn1_modules-0.2.8-py3.7.egg", hash = "sha256:c29a5e5cc7a3f05926aff34e097e84f8589cd790ce0ed41b67aed6857b26aafd"},
 ]
 pycparser = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},
@@ -1329,18 +1309,21 @@ service-identity = [
     {file = "service-identity-21.1.0.tar.gz", hash = "sha256:6e6c6086ca271dc11b033d17c3a8bea9f24ebff920c587da090afc9519419d34"},
     {file = "service_identity-21.1.0-py2.py3-none-any.whl", hash = "sha256:f0b0caac3d40627c3c04d7a51b6e06721857a0e10a8775f2d1d7e72901b3a7db"},
 ]
+setuptools = [
+    {file = "setuptools-65.5.1-py3-none-any.whl", hash = "sha256:d0b9a8433464d5800cbe05094acf5c6d52a91bfac9b52bcfc4d41382be5d5d31"},
+    {file = "setuptools-65.5.1.tar.gz", hash = "sha256:e197a19aa8ec9722928f2206f8de752def0e4c9fc6953527360d1c36d94ddb2f"},
+]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
-snapshots = []
 sqlparse = [
     {file = "sqlparse-0.4.3-py3-none-any.whl", hash = "sha256:0323c0ec29cd52bceabc1b4d9d579e311f3e4961b98d174201d5622a23b85e34"},
     {file = "sqlparse-0.4.3.tar.gz", hash = "sha256:69ca804846bb114d2ec380e4360a8a340db83f0ccf3afceeb1404df028f57268"},
 ]
 twisted = [
-    {file = "Twisted-22.8.0-py3-none-any.whl", hash = "sha256:8d4718d1e48dcc28933f8beb48dc71cfe77a125e37ad1eb7a3d0acc49baf6c99"},
-    {file = "Twisted-22.8.0.tar.gz", hash = "sha256:e5b60de39f2d1da153fbe1874d885fe3fcbdb21fcc446fa759a53e8fc3513bed"},
+    {file = "Twisted-22.10.0-py3-none-any.whl", hash = "sha256:86c55f712cc5ab6f6d64e02503352464f0400f66d4f079096d744080afcccbd0"},
+    {file = "Twisted-22.10.0.tar.gz", hash = "sha256:32acbd40a94f5f46e7b42c109bfae2b302250945561783a8b7a059048f2d4d31"},
 ]
 twisted-iocpsupport = [
     {file = "twisted-iocpsupport-1.0.2.tar.gz", hash = "sha256:72068b206ee809c9c596b57b5287259ea41ddb4774d86725b19f35bf56aa32a9"},
@@ -1376,42 +1359,45 @@ urllib3 = [
     {file = "urllib3-1.26.12-py2.py3-none-any.whl", hash = "sha256:b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"},
     {file = "urllib3-1.26.12.tar.gz", hash = "sha256:3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"},
 ]
-"zope.interface" = [
-    {file = "zope.interface-5.5.0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:2cb3003941f5f4fa577479ac6d5db2b940acb600096dd9ea9bf07007f5cab46f"},
-    {file = "zope.interface-5.5.0-cp27-cp27m-win32.whl", hash = "sha256:8c791f4c203ccdbcda588ea4c8a6e4353e10435ea48ddd3d8734a26fe9714cba"},
-    {file = "zope.interface-5.5.0-cp27-cp27m-win_amd64.whl", hash = "sha256:3eedf3d04179774d750e8bb4463e6da350956a50ed44d7b86098e452d7ec385e"},
-    {file = "zope.interface-5.5.0-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:58a66c2020a347973168a4a9d64317bac52f9fdfd3e6b80b252be30da881a64e"},
-    {file = "zope.interface-5.5.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:da7912ae76e1df6a1fb841b619110b1be4c86dfb36699d7fd2f177105cdea885"},
-    {file = "zope.interface-5.5.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:423c074e404f13e6fa07f4454f47fdbb38d358be22945bc812b94289d9142374"},
-    {file = "zope.interface-5.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:7bdcec93f152e0e1942102537eed7b166d6661ae57835b20a52a2a3d6a3e1bf3"},
-    {file = "zope.interface-5.5.0-cp310-cp310-win32.whl", hash = "sha256:03f5ae315db0d0de668125d983e2a819a554f3fdb2d53b7e934e3eb3c3c7375d"},
-    {file = "zope.interface-5.5.0-cp310-cp310-win_amd64.whl", hash = "sha256:8b9f153208d74ccfa25449a0c6cb756ab792ce0dc99d9d771d935f039b38740c"},
-    {file = "zope.interface-5.5.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:aeac590cce44e68ee8ad0b8ecf4d7bf15801f102d564ca1b0eb1f12f584ee656"},
-    {file = "zope.interface-5.5.0-cp35-cp35m-win32.whl", hash = "sha256:7d9ec1e6694af39b687045712a8ad14ddcb568670d5eb1b66b48b98b9312afba"},
-    {file = "zope.interface-5.5.0-cp35-cp35m-win_amd64.whl", hash = "sha256:d18fb0f6c8169d26044128a2e7d3c39377a8a151c564e87b875d379dbafd3930"},
-    {file = "zope.interface-5.5.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:0eb2b3e84f48dd9cfc8621c80fba905d7e228615c67f76c7df7c716065669bb6"},
-    {file = "zope.interface-5.5.0-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:df6593e150d13cfcce69b0aec5df7bc248cb91e4258a7374c129bb6d56b4e5ca"},
-    {file = "zope.interface-5.5.0-cp36-cp36m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:9dc4493aa3d87591e3d2bf1453e25b98038c839ca8e499df3d7106631b66fe83"},
-    {file = "zope.interface-5.5.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:5c6023ae7defd052cf76986ce77922177b0c2f3913bea31b5b28fbdf6cb7099e"},
-    {file = "zope.interface-5.5.0-cp36-cp36m-win32.whl", hash = "sha256:a69c28d85bb7cf557751a5214cb3f657b2b035c8c96d71080c1253b75b79b69b"},
-    {file = "zope.interface-5.5.0-cp36-cp36m-win_amd64.whl", hash = "sha256:85dd6dd9aaae7a176948d8bb62e20e2968588fd787c29c5d0d964ab475168d3d"},
-    {file = "zope.interface-5.5.0-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:970661ece2029915b8f7f70892e88404340fbdefd64728380cad41c8dce14ff4"},
-    {file = "zope.interface-5.5.0-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1e3495bb0cdcea212154e558082c256f11b18031f05193ae2fb85d048848db14"},
-    {file = "zope.interface-5.5.0-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:3f68404edb1a4fb6aa8a94675521ca26c83ebbdbb90e894f749ae0dc4ca98418"},
-    {file = "zope.interface-5.5.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:740f3c1b44380658777669bcc42f650f5348e53797f2cee0d93dc9b0f9d7cc69"},
-    {file = "zope.interface-5.5.0-cp37-cp37m-win32.whl", hash = "sha256:006f8dd81fae28027fc28ada214855166712bf4f0bfbc5a8788f9b70982b9437"},
-    {file = "zope.interface-5.5.0-cp37-cp37m-win_amd64.whl", hash = "sha256:43490ad65d4c64e45a30e51a2beb7a6b63e1ff395302ad22392224eb618476d6"},
-    {file = "zope.interface-5.5.0-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:f70726b60009433111fe9928f5d89cbb18962411d33c45fb19eb81b9bbd26fcd"},
-    {file = "zope.interface-5.5.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cfa614d049667bed1c737435c609c0956c5dc0dbafdc1145ee7935e4658582cb"},
-    {file = "zope.interface-5.5.0-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:58a975f89e4584d0223ab813c5ba4787064c68feef4b30d600f5e01de90ae9ce"},
-    {file = "zope.interface-5.5.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:37ec9ade9902f412cc7e7a32d71f79dec3035bad9bd0170226252eed88763c48"},
-    {file = "zope.interface-5.5.0-cp38-cp38-win32.whl", hash = "sha256:be11fce0e6af6c0e8d93c10ef17b25aa7c4acb7ec644bff2596c0d639c49e20f"},
-    {file = "zope.interface-5.5.0-cp38-cp38-win_amd64.whl", hash = "sha256:cbbf83914b9a883ab324f728de869f4e406e0cbcd92df7e0a88decf6f9ab7d5a"},
-    {file = "zope.interface-5.5.0-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:26c1456520fdcafecc5765bec4783eeafd2e893eabc636908f50ee31fe5c738c"},
-    {file = "zope.interface-5.5.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:47ff078734a1030c48103422a99e71a7662d20258c00306546441adf689416f7"},
-    {file = "zope.interface-5.5.0-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:687cab7f9ae18d2c146f315d0ca81e5ffe89a139b88277afa70d52f632515854"},
-    {file = "zope.interface-5.5.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:d80f6236b57a95eb19d5e47eb68d0296119e1eff6deaa2971ab8abe3af918420"},
-    {file = "zope.interface-5.5.0-cp39-cp39-win32.whl", hash = "sha256:9cdc4e898d3b1547d018829fd4a9f403e52e51bba24be0fbfa37f3174e1ef797"},
-    {file = "zope.interface-5.5.0-cp39-cp39-win_amd64.whl", hash = "sha256:6566b3d2657e7609cd8751bcb1eab1202b1692a7af223035a5887d64bb3a2f3b"},
-    {file = "zope.interface-5.5.0.tar.gz", hash = "sha256:700ebf9662cf8df70e2f0cb4988e078c53f65ee3eefd5c9d80cf988c4175c8e3"},
+zope-interface = [
+    {file = "zope.interface-5.5.1-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:dd4b9251e95020c3d5d104b528dbf53629d09c146ce9c8dfaaf8f619ae1cce35"},
+    {file = "zope.interface-5.5.1-cp27-cp27m-win32.whl", hash = "sha256:061a41a3f96f076686d7f1cb87f3deec6f0c9f0325dcc054ac7b504ae9bb0d82"},
+    {file = "zope.interface-5.5.1-cp27-cp27m-win_amd64.whl", hash = "sha256:7f2e4ebe0a000c5727ee04227cf0ff5ae612fe599f88d494216e695b1dac744d"},
+    {file = "zope.interface-5.5.1-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:c9552ee9e123b7997c7630fb95c466ee816d19e721c67e4da35351c5f4032726"},
+    {file = "zope.interface-5.5.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e6a923d2dec50f2b4d41ce198af3516517f2e458220942cf393839d2f9e22000"},
+    {file = "zope.interface-5.5.1-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:a20fc9cccbda2a28e8db8cabf2f47fead7e9e49d317547af6bf86a7269e4b9a1"},
+    {file = "zope.interface-5.5.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:a6f51ffbdcf865f140f55c484001415505f5e68eb0a9eab1d37d0743b503b423"},
+    {file = "zope.interface-5.5.1-cp310-cp310-win32.whl", hash = "sha256:8de7bde839d72d96e0c92e8d1fdb4862e89b8fc52514d14b101ca317d9bcf87c"},
+    {file = "zope.interface-5.5.1-cp310-cp310-win_amd64.whl", hash = "sha256:90f611d4cdf82fb28837fe15c3940255755572a4edf4c72e2306dbce7dcb3092"},
+    {file = "zope.interface-5.5.1-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:d2f2ec42fbc21e1af5f129ec295e29fee6f93563e6388656975caebc5f851561"},
+    {file = "zope.interface-5.5.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:489c4c46fcbd9364f60ff0dcb93ec9026eca64b2f43dc3b05d0724092f205e27"},
+    {file = "zope.interface-5.5.1-cp311-cp311-win32.whl", hash = "sha256:9ad58724fabb429d1ebb6f334361f0a3b35f96be0e74bfca6f7de8530688b2df"},
+    {file = "zope.interface-5.5.1-cp311-cp311-win_amd64.whl", hash = "sha256:a69f6d8b639f2317ba54278b64fef51d8250ad2c87acac1408b9cc461e4d6bb6"},
+    {file = "zope.interface-5.5.1-cp35-cp35m-win32.whl", hash = "sha256:d743b03a72fefed807a4512c079fb1aa5e7777036cc7a4b6ff79ae4650a14f73"},
+    {file = "zope.interface-5.5.1-cp35-cp35m-win_amd64.whl", hash = "sha256:3e42b1c3f4fd863323a8275c52c78681281a8f2e1790f0e869d911c1c7b25c46"},
+    {file = "zope.interface-5.5.1-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:7b4547a2f624a537e90fb99cec4d8b3b6be4af3f449c3477155aae65396724ad"},
+    {file = "zope.interface-5.5.1-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:59a96d499ff6faa9b85b1309f50bf3744eb786e24833f7b500cbb7052dc4ae29"},
+    {file = "zope.interface-5.5.1-cp36-cp36m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:3c293c5c0e1cabe59c33e0d02fcee5c3eb365f79a20b8199a26ca784e406bd0d"},
+    {file = "zope.interface-5.5.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:e8c8764226daad39004b7873c3880eb4860c594ff549ea47c045cdf313e1bad5"},
+    {file = "zope.interface-5.5.1-cp36-cp36m-win32.whl", hash = "sha256:4477930451521ac7da97cc31d49f7b83086d5ae76e52baf16aac659053119f6d"},
+    {file = "zope.interface-5.5.1-cp36-cp36m-win_amd64.whl", hash = "sha256:27c53aa2f46d42940ccdcb015fd525a42bf73f94acd886296794a41f229d5946"},
+    {file = "zope.interface-5.5.1-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:2204a9d545fdbe0d9b0bf4d5e2fc67e7977de59666f7131c1433fde292fc3b41"},
+    {file = "zope.interface-5.5.1-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:475b6e371cdbeb024f2302e826222bdc202186531f6dc095e8986c034e4b7961"},
+    {file = "zope.interface-5.5.1-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:a1393229c9c126dd1b4356338421e8882347347ab6fe3230cb7044edc813e424"},
+    {file = "zope.interface-5.5.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:e4988d94962f517f6da2d52337170b84856905b31b7dc504ed9c7b7e4bab2fc3"},
+    {file = "zope.interface-5.5.1-cp37-cp37m-win32.whl", hash = "sha256:0eda7f61da6606a28b5efa5d8ad79b4b5bb242488e53a58993b2ec46c924ffee"},
+    {file = "zope.interface-5.5.1-cp37-cp37m-win_amd64.whl", hash = "sha256:185f0faf6c3d8f2203e8755f7ca16b8964d97da0abde89c367177a04e36f2568"},
+    {file = "zope.interface-5.5.1-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:026e7da51147910435950a46c55159d68af319f6e909f14873d35d411f4961db"},
+    {file = "zope.interface-5.5.1-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:58331d2766e8e409360154d3178449d116220348d46386430097e63d02a1b6d2"},
+    {file = "zope.interface-5.5.1-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:d0587d238b7867544134f4dcca19328371b8fd03fc2c56d15786f410792d0a68"},
+    {file = "zope.interface-5.5.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:cd423d49abcf0ebf02c29c3daffe246ff756addb891f8aab717b3a4e2e1fd675"},
+    {file = "zope.interface-5.5.1-cp38-cp38-win32.whl", hash = "sha256:13a7c6e3df8aa453583412de5725bf761217d06f66ff4ed776d44fbcd13ec4e4"},
+    {file = "zope.interface-5.5.1-cp38-cp38-win_amd64.whl", hash = "sha256:72a93445937cc71f0b8372b0c9e7c185328e0db5e94d06383a1cb56705df1df4"},
+    {file = "zope.interface-5.5.1-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:6cb8f9a1db47017929634264b3fc7ea4c1a42a3e28d67a14f14aa7b71deaa0d2"},
+    {file = "zope.interface-5.5.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3e5540b7d703774fd171b7a7dc2a3cb70e98fc273b8b260b1bf2f7d3928f125b"},
+    {file = "zope.interface-5.5.1-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:d1f2d91c9c6cd54d750fa34f18bd73c71b372d0e6d06843bc7a5f21f5fd66fe0"},
+    {file = "zope.interface-5.5.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:76cf472c79d15dce5f438a4905a1309be57d2d01bc1de2de30bda61972a79ab4"},
+    {file = "zope.interface-5.5.1-cp39-cp39-win32.whl", hash = "sha256:509a8d39b64a5e8d473f3f3db981f3ca603d27d2bc023c482605c1b52ec15662"},
+    {file = "zope.interface-5.5.1-cp39-cp39-win_amd64.whl", hash = "sha256:8343536ea4ee15d6525e3e726bb49ffc3f2034f828a49237a36be96842c06e7c"},
+    {file = "zope.interface-5.5.1.tar.gz", hash = "sha256:6d678475fdeb11394dc9aaa5c564213a1567cc663082e0ee85d52f78d1fbaab2"},
 ]
