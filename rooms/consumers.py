@@ -25,16 +25,18 @@ class RoomConsumer(WebsocketConsumer):
 
         if self.user.is_authenticated:
             self.room_group_name = f"{self.user.username}_Music_Room"
+            async_to_sync(self.channel_layer.group_add)(
+                self.room_group_name, self.channel_name
+            )
             self.accept()
 
         else:
             self.close()
 
     def disconnect(self, close_code):
-        if self.room_group_name != False:
-            async_to_sync(self.channel_layer.group_discard)(
-                self.room_group_name, self.channel_name
-            )
+        async_to_sync(self.channel_layer.group_discard)(
+            self.room_group_name, self.channel_name
+        )
 
     def receive(self, text_data):
 
@@ -56,9 +58,10 @@ class RoomConsumer(WebsocketConsumer):
         Handling of the request will be done on the client side.
         """
 
-        data = json.dumps({type: "playing.request", "request": event["request"]})
-        print(data)
-
+        deserialized_data = json.loads(event["request"])
+        print(deserialized_data)
+        serialized_data = json.dumps(deserialized_data)
+        print(serialized_data)
         self.send(
-            text_data=data,
+            text_data=serialized_data,
         )
