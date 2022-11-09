@@ -1,4 +1,5 @@
 .vscode
 .env
 .env.production
+.env.db
 allblue-androida-1657859729384-firebase-adminsdk-zhfxo-495e535690.json
